@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:second_app/otp.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +11,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    FocusNode myFocusNode = new FocusNode();
+    return MaterialApp( 
       home: Scaffold(
         backgroundColor: const Color.fromARGB(255, 255, 69, 27),
         body: Center(
@@ -48,18 +50,12 @@ class MyApp extends StatelessWidget {
                   ),
                   color: Colors.white,
                   child: IntlPhoneField(
-                    decoration: const InputDecoration(
+                    focusNode: myFocusNode,
+                    decoration: InputDecoration(
                       labelText: 'Phone Number',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(
-                              20), // Border radius for the entire field
-                        ),
-                        borderSide: BorderSide(
-                          color: Color.fromARGB(
-                              255, 255, 69, 27), // Color of the border
-                        ),
-                      ),
+                      labelStyle: TextStyle(color: myFocusNode.hasFocus ? Colors.red : Colors.black),
+                      focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Colors.red, width: 2.0),),
+                      
                     ),
                     initialCountryCode: 'IN',
                     onChanged: (phone) {
@@ -74,7 +70,7 @@ class MyApp extends StatelessWidget {
                     right: 20,
                   ),
                   width: MediaQuery.of(context).size.width,
-                  height: 70,
+                  height: 55,
                   color: Colors.white,
                   child: ElevatedButton(
                       onPressed: () {},
@@ -93,7 +89,7 @@ class MyApp extends StatelessWidget {
                         ),
                       ))),
                       Container(
-  padding: const EdgeInsets.only(left: 20, right: 20),
+  padding: const EdgeInsets.only(left: 20, right: 20,top: 10),
   width: MediaQuery.of(context).size.width,
   color: Colors.white,
   child: Center(
