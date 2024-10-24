@@ -110,7 +110,7 @@ class MainPage extends StatelessWidget {
                   onPressed: () {},
                   label: const Text(
                     'Filter',
-                    style: TextStyle(fontSize: 15, color: Colors.black),
+                    style: TextStyle(fontSize: 13, color: Colors.black),
                   ),
                   icon: const Icon(
                     Icons.link_rounded,
@@ -121,7 +121,7 @@ class MainPage extends StatelessWidget {
                   onPressed: () {},
                   label: const Text(
                     'Sort by',
-                    style: TextStyle(fontSize: 15, color: Colors.black),
+                    style: TextStyle(fontSize: 13, color: Colors.black),
                   ),
                   icon: const Icon(
                     Icons.arrow_downward,
@@ -132,7 +132,7 @@ class MainPage extends StatelessWidget {
                   onPressed: () {},
                   child: const Text(
                     'Fast Delivery',
-                    style: TextStyle(fontSize: 15, color: Colors.black),
+                    style: TextStyle(fontSize: 13, color: Colors.black),
                   ),
                 ),
               ],

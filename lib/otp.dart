@@ -67,8 +67,8 @@ class MyPage extends StatelessWidget {
                   numberOfFields: 6,
                   borderColor: const Color(0xFF512DA8),
                   showFieldAsBox: true,
-                  fieldWidth: 50,
-                  fieldHeight: 50,
+                  fieldWidth: 45,
+                  fieldHeight: 45,
                   onCodeChanged: (String code) {
                     
                   },
@@ -124,7 +124,7 @@ class MyPage extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),
-                          minimumSize: const Size(190, 50),
+                          minimumSize: const Size(100, 50),
                         ),
                         child: const Text(
                           'Get via SMS',
@@ -140,7 +140,7 @@ class MyPage extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),
-                          minimumSize: const Size(180, 50),
+                          minimumSize: const Size(100, 50),
                         ),
                         child: const Text(
                           'Get via Call',
