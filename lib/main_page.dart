@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:second_app/dishes_Page.dart';
 
 class Restaurant {
   final String name;
@@ -108,6 +109,14 @@ class MainPage extends StatelessWidget {
               children: [
                 ElevatedButton.icon(
                   onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Colors.white,
+                    side: const BorderSide(color: Colors.black, width: 0.7),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                  ),
                   label: const Text(
                     'Filter',
                     style: TextStyle(fontSize: 13, color: Colors.black),
@@ -119,6 +128,14 @@ class MainPage extends StatelessWidget {
                 ),
                 ElevatedButton.icon(
                   onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Colors.white,
+                    side: const BorderSide(color: Colors.black, width: 0.7),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                  ),
                   label: const Text(
                     'Sort by',
                     style: TextStyle(fontSize: 13, color: Colors.black),
@@ -130,6 +147,14 @@ class MainPage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Colors.white,
+                    side: const BorderSide(color: Colors.black, width: 0.7),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                  ),
                   child: const Text(
                     'Fast Delivery',
                     style: TextStyle(fontSize: 13, color: Colors.black),
@@ -145,61 +170,68 @@ class MainPage extends StatelessWidget {
 
                   return Container(
                     padding: const EdgeInsets.all(8),
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius:
-                              BorderRadius.circular(15), // Border radius
-                          child: Image.asset(
-                            restaurant.imageUrl,
-                            width: 150, // Adjusted width
-                            height: 160, // Adjusted height
-                            fit: BoxFit.cover,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyDish()),
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Image.asset(
+                              restaurant.imageUrl,
+                              width: 150,
+                              height: 160,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 20),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(restaurant.name,
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20)),
-                              Text(
-                                restaurant.cuisine,
-                                style: const TextStyle(fontSize: 15),
-                              ),
-                              Text(restaurant.location,
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15)),
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                    size: 16,
-                                  ),
-                                  const SizedBox(
-                                    height: 25,
-                                  ),
-                                  Text(
-                                      '${restaurant.rating}', // Rating information
+                          const SizedBox(width: 20),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(restaurant.name,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20)),
+                                Text(
+                                  restaurant.cuisine,
+                                  style: const TextStyle(fontSize: 15),
+                                ),
+                                Text(restaurant.location,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15)),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                      size: 16,
+                                    ),
+                                    const SizedBox(
+                                      height: 25,
+                                    ),
+                                    Text(
+                                      '${restaurant.rating}',
                                       style: const TextStyle(
-                                          fontWeight: FontWeight.bold)),
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Text(restaurant.deliveryTime),
-                              Text(restaurant.offers,
-                                  style: const TextStyle(color: Colors.green)),
-                            ],
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 5),
+                                Text(restaurant.deliveryTime),
+                                Text(restaurant.offers,
+                                    style:
+                                        const TextStyle(color: Colors.green)),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   );
                 },
